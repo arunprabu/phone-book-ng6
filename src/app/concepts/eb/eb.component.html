@@ -1,0 +1,9 @@
+<div>
+  <!-- this will not work -->
+  <button type="button" onclick="onBtnClick(event)">Click me</button>
+
+  <br><br>
+  <!-- but this will -->
+  <button type="button" (click)="onBtnClick($event)">Click me pls</button>
+
+</div>

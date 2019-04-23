@@ -5,7 +5,11 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div class="text-center">
       <hr>
-      <app-nav></app-nav>
+      <app-nav>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Back to Top</a>
+        </li>
+      </app-nav>
       <p class="red">Copyright &copy; 2019</p>
     </div>
   `,

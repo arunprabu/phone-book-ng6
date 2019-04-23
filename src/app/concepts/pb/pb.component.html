@@ -1,0 +1,18 @@
+<div>
+  <!-- String interpolation -->
+  <p title="{{myApp}}">Mouseover to see the title</p>
+  <input type="text" value="{{myApp}}">
+  <br>
+  <br>
+  <!-- the following is Property binding -->
+  <input type="text" [value]="myApp">
+
+  <div [ngClass]="{'red': !isAuthenticated(), 'green': isAuthenticated() }">
+    testing ngClass
+  </div>
+
+  <!-- ToDO: try ngStyle -->
+
+  <!--other examples : routerLinkActiveOptions -->
+
+</div>
