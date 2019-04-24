@@ -4,20 +4,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavComponent } from './shared/nav/nav.component';
-import { ConceptsComponent } from './concepts/concepts.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { AboutComponent } from './about/about.component';
-import { AddContactComponent } from './contacts/add-contact/add-contact.component';
-import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
-import { SiComponent } from './concepts/si/si.component';
-import { PbComponent } from './concepts/pb/pb.component';
-import { EbComponent } from './concepts/eb/eb.component';
-import { TwbComponent } from './concepts/twb/twb.component';
-import { CpbComponent } from './concepts/cpb/cpb.component';
-import { CebComponent } from './concepts/ceb/ceb.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { NavComponent } from './components/shared/nav/nav.component';
+import { ConceptsComponent } from './components/concepts/concepts.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { AboutComponent } from './components/about/about.component';
+import { AddContactComponent } from './components/contacts/add-contact/add-contact.component';
+import { ContactDetailsComponent } from './components/contacts/contact-details/contact-details.component';
+import { SiComponent } from './components/concepts/si/si.component';
+import { PbComponent } from './components/concepts/pb/pb.component';
+import { EbComponent } from './components/concepts/eb/eb.component';
+import { TwbComponent } from './components/concepts/twb/twb.component';
+import { CpbComponent } from './components/concepts/cpb/cpb.component';
+import { CebComponent } from './components/concepts/ceb/ceb.component';
+import { ColorizrDirective } from './directives/colorizr.directive';
+import { SdComponent } from './components/concepts/sd/sd.component';
 
 const APP_ROUTES: Routes = [
   //syntax : path should have string and the component when that path is hit
@@ -49,7 +51,9 @@ const APP_ROUTES: Routes = [
     EbComponent,
     TwbComponent,
     CpbComponent,
-    CebComponent
+    CebComponent,
+    ColorizrDirective,
+    SdComponent
   ],
   imports: [
     BrowserModule,

@@ -10,17 +10,18 @@ export class CebComponent implements OnInit {
   //Step2: mention the type of data you want to pass to parent
   @Output() profileLoaded = new EventEmitter<string>();
 
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
 
   constructor() {
     
   }
 
   ngOnInit() {
- 
+    
   }
   
   loadProfile(){
+    debugger;
     //Step 3: Emit the custom Event with the data 
     this.profileLoaded.emit("Arun");
   }

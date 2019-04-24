@@ -25,7 +25,7 @@ export class PbComponent implements OnInit {
   ngOnInit() {
   }
 
-  isAuthenticated(): boolean {
+  isAuthenticated() {
     return true;
   }
 
