@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SdComponent implements OnInit {
 
+  isLoggedIn:boolean = false;
+
+  usersList: string[] = [
+    'a', 'b', 'c', 'd'
+  ];
+  
   constructor() {
     
   }

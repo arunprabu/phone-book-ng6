@@ -29,7 +29,7 @@ const APP_ROUTES: Routes = [
    children: [
     { path: '', component: ContactsComponent },
     { path: 'new', component: AddContactComponent },
-    { path: ':id', component: ContactDetailsComponent },
+    { path: ':id', component: ContactDetailsComponent }
    ]},
   { path: 'about', component: AboutComponent }
 ];
