@@ -7,7 +7,7 @@
             card's content.</p>
           <p>Phone: {{ contactData.phone }}</p>
           <p>Email: {{ contactData.email }}</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+          <button type="button" class="btn btn-primary" (click)="openEditModal()">Edit</button>
           <button type="button" class="btn btn-danger">Delete</button>
   
           <!-- Modal -->
@@ -21,37 +21,37 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" *ngIf="editableContactData">
                   <form>
                     <div class="form-group row">
                       <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter user name" >
+                        <input type="text" class="form-control" placeholder="Enter user name" [(ngModel)]="editableContactData.name" name="name">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="staticEmail" class="col-sm-2 col-form-label">Phone</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter Phone" >
+                        <input type="text" class="form-control" placeholder="Enter Phone" 
+                        [(ngModel)]="editableContactData.phone" name="phone">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" placeholder="Enter Email">
+                        <input type="email" class="form-control" placeholder="Enter Email"
+                        [(ngModel)]="editableContactData.email" name="email">
                       </div>
                     </div>
   
-                    <div class="alert alert-success">
-                      Updated
-                    </div>
-                  
+                    <div class="alert alert-success" *ngIf="submissionStatus">
+                      {{ submissionStatus }}
+                    </div>  
                   </form>
-  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" >Save changes</button>
+                  <button type="button" class="btn btn-primary" (click)="updateHandler()">Save changes</button>
                 </div>
               </div>
             </div>

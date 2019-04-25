@@ -37,12 +37,21 @@ export class ContactService {
 
   }
 
-  getContactById(contactId: string){ 
+  getContactById(contactId: string): Observable<IContact>{ 
     return this.http.get("https://jsonplaceholder.typicode.com/users/" + contactId)
               .pipe(map( (resp: IContact) => {
                   console.log(resp);
                   return resp;
               }));
+  }
+
+  updateContact(contactData): Observable<IContact>{
+    return this.http.put("https://jsonplaceholder.typicode.com/users/" + contactData.id, contactData)
+              .pipe(map( (resp: IContact) => {
+                  console.log(resp);
+                  return resp;
+              }));
+    
   }
 
 }

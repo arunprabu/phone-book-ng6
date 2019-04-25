@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ContactService } from 'src/app/services/contact.service';
 import { IContact } from 'src/app/interfaces/icontact';
 
+declare var $: any;   //use jquery with in this component
+
 @Component({
   selector: 'app-contact-details',
   templateUrl: './contact-details.component.html',
@@ -13,6 +15,8 @@ export class ContactDetailsComponent implements OnInit {
 
   contactId: string;
   contactData: IContact;
+  editableContactData: IContact;
+  submissionStatus: string;
 
   constructor( private _contactService: ContactService, 
               private _activatedRoute: ActivatedRoute) {
@@ -30,9 +34,21 @@ export class ContactDetailsComponent implements OnInit {
                     console.log(resp);
                     console.log(this);
                     this.contactData = resp;
-                  });
+                  });   
+  }
 
-                     
+  openEditModal(){
+    $('#editModal').modal('show');
+    //duplicate the contactData 
+    this.editableContactData = JSON.parse(JSON.stringify(this.contactData)); 
+  }
+
+  updateHandler( ) {
+    this._contactService.updateContact(this.editableContactData)
+            .subscribe( resp => {
+              console.log(resp);
+              this.submissionStatus = "Updated Successfully!"
+            });
   }
 
 }
