@@ -12,7 +12,7 @@ export class EbComponent implements OnInit {
   ngOnInit() {
   }
 
-  onBtnClick(){
+  onBtnClick(event){
     alert("clicked");
   }
 }

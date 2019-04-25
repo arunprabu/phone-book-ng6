@@ -11,11 +11,6 @@ export class SiComponent implements OnInit {
   exp: number = 13;
   isLoggedIn: boolean = true;
 
-  myProfile: Object = {
-    name: "Arun",
-    city: "Chn"
-  }
-
   skillsList: Array<string> = [
     'html', 'css', 'nodejs'
   ]; 
