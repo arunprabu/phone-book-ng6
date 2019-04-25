@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
+import { IContact } from 'src/app/interfaces/icontact';
 
 @Component({
   selector: 'app-contacts',
@@ -8,19 +9,24 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class ContactsComponent implements OnInit {
 
-  contactList: any;
+  contactList: IContact[];
+  errorMsg: string;
   constructor( private contactService: ContactService) { }
 
   ngOnInit() {
     //connect to service 
     //send a call to get contacts 
     this.contactService.getContacts()
-              .subscribe( resp => {
-                console.log(resp);
-                //save it in array
-                this.contactList = resp;
-                
-              });
+              .subscribe((res: IContact[]) => { 
+                  console.log('HTTP response', res) 
+                  this.contactList = res;
+                },
+                err => { 
+                  console.log('HTTP Error', err) 
+                  this.errorMsg = err;
+                },
+                () => console.log('HTTP request completed.')
+            );
     
   }
 

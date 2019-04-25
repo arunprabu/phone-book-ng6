@@ -7,6 +7,9 @@
         </div>
       </section>
     </div>
+    <div class="alert alert-danger" *ngIf="errorMsg">
+      {{ errorMsg.status }}
+    </div>
     <div class="row" >
       <div class="card col-sm-3" *ngFor="let contact of contactList">
         <div class="card-body">
