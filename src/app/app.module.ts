@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -21,18 +21,24 @@ import { CpbComponent } from './components/concepts/cpb/cpb.component';
 import { CebComponent } from './components/concepts/ceb/ceb.component';
 import { ColorizrDirective } from './directives/colorizr.directive';
 import { SdComponent } from './components/concepts/sd/sd.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/auth/login/login.component';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { GetInTouchComponent } from './components/get-in-touch/get-in-touch.component';
 
 const APP_ROUTES: Routes = [
   //syntax : path should have string and the component when that path is hit
   { path: '', component: ConceptsComponent },
-  { path: 'concepts', component: ConceptsComponent },
+  { path: 'concepts', component: ConceptsComponent},
   { path: 'contacts', 
    children: [
     { path: '', component: ContactsComponent },
-    { path: 'new', component: AddContactComponent },
+    { path: 'new', component: AddContactComponent, canActivate: [AuthGuard] },
     { path: ':id', component: ContactDetailsComponent }
    ]},
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'get-in-touch', component: GetInTouchComponent },
 ];
 
 //decorator
@@ -54,12 +60,16 @@ const APP_ROUTES: Routes = [
     CpbComponent,
     CebComponent,
     ColorizrDirective,
-    SdComponent
+    SdComponent,
+    LoginComponent,
+    EllipsisPipe,
+    GetInTouchComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

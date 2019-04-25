@@ -74,6 +74,17 @@
   
       <div class="tab-pane fade" id="pipes" role="tabpanel">
         <h2>Pipes </h2>
+        <p>{{ loremIpsum }}</p>
+        <p>{{ loremIpsum | uppercase }}</p>
+
+        <p>{{ birthday }}</p>
+        <p>{{ birthday | date }}</p>
+        <p>{{ birthday | date: 'dd-MMMM, yyyy hh:mm:ss a' }}</p>
+
+        <p>Custom Pipe</p>
+        <p>{{ loremIpsum | ellipsis }}</p>
+        <p>{{ loremIpsum | ellipsis: 60 }}</p>
+
       </div>
     </div>
     <hr style="border: solid 1px black;">

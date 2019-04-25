@@ -7,6 +7,10 @@ import { CebComponent } from './ceb/ceb.component';
   styles: []
 })
 export class ConceptsComponent implements OnInit, AfterViewInit {
+  //for pipes 
+  loremIpsum: string ="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsam iure adipisci voluptate nulla nam temporibus reprehenderit vitae quasi maiores dicta deserunt soluta consectetur id, debitis rem mollitia iusto facilis.";
+  birthday = new Date(1988, 3, 15); // April 15, 1988
+
 
   @ViewChild(CebComponent) cebData;
 

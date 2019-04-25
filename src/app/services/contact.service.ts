@@ -45,7 +45,7 @@ export class ContactService {
               }));
   }
 
-  updateContact(contactData): Observable<IContact>{
+  updateContact(contactData: IContact): Observable<IContact>{
     return this.http.put("https://jsonplaceholder.typicode.com/users/" + contactData.id, contactData)
               .pipe(map( (resp: IContact) => {
                   console.log(resp);
